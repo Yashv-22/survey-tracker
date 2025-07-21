@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-poll"></i> Survey Tracker
+            </a>
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active" href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a class="nav-item nav-link" href="{{ url_for('home') }}">New Project</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between mb-4">
+            <h1 class="display-4">Survey Projects</h1>
+            <button id="exportCsv" class="btn btn-outline-secondary">
+                <i class="fas fa-file-export"></i> Export CSV
+            </button>
+        </div>
+        <div class="card shadow mb-4">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover table-bordered" id="projectsTable">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th>Project Code</th>
+                                <th>Client Name</th>
+                                <th>Country</th>
+                                <th>CPI ($)</th>
+                                <th>LOI (min)</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projectTableBody">
+                            <!-- Projects will load here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-light py-4 mt-5">
+        <div class="container text-center text-muted">
+            <p>© 2023 Survey Tracker | <i class="fas fa-envelope"></i> support@surveytracker.com</p>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
